@@ -2,6 +2,6 @@
 
 <ul>
 	<% @locations.each do |location| %>
-	<li><%= (location.name ? "#{location.name} -" : "") +"#{location.city}" %></li>
+	<li><%= (location.name ? "#{location.name} - " : "") +"#{location.city}" %></li>
 	<% end %>
 </ul>
