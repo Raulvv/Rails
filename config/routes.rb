@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  
+
   # get 'ruta' => 'controller#defarchivo'
 
   get 'home' => 'home#welcome'
   get '/' => 'home#contact'
   get 'locations' => 'locations#index'
+  get 'locations/:id' => 'locations#show'
+
+  get 'visits' => 'visits#index'
+  get 'visits/:locations_id' => 'visits#show'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
