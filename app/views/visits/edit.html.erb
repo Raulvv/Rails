@@ -1,0 +1,24 @@
+<h1>Formulario para Editar <%= @location.name%></h1>
+
+
+<% if @visit.errors.any? %>
+	<ul>
+		<% @visit.errors.full_messages.each do |errors| %>
+		<li><%= errors %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+
+<%= form_for [@location, @visit] do |f| %>
+	<%= f.label :user_name %>
+	<%= f.text_field :user_name %>
+	<br>
+	<%= f.datetime_select(:from_date, default:Time.now + 1.days) %>
+	<br>
+	<%= f.datetime_select(:to_date, default:Time.now + 1.days) %>
+	<br>
+	<%= f.submit "Save" %>
+<% end %>
+
+<%= link_to "Cancel", location_visits_path(@location.id) %>
