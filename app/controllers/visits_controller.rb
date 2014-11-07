@@ -2,6 +2,7 @@ class VisitsController < ApplicationController
 	def index
 		@location = Location.find(params[:location_id])
 		@visits = @location.visits
+		@users = User.all
 	end
 
 	def index_users
