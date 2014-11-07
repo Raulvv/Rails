@@ -21,3 +21,6 @@ visit2 = Visit.create(user_name: 'JuanRa', from_date: Time.now, to_date: Time.no
 location3.visits << visit2
 
 Visit.create(user_name: 'JuanRa', from_date: Time.now, to_date: Time.now + 1.hour, location_id: location2.id)
+
+user1 = User.create(name: 'PacoFiestas', email: 'pacofiestas@gmail.com')
+user2 = User.create(name: 'LaPaca', email: 'ostialapaca@gmail.com')
