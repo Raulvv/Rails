@@ -1,4 +1,5 @@
 class Visit < ActiveRecord::Base
+	belongs_to :user
 	belongs_to :location
 
 	validates :user_name, presence: true

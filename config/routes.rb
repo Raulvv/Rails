@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'home#welcome'
 
+  resources :users do
+    resources :visits
+  end
+
   resources :locations do
     resources :visits
   end
