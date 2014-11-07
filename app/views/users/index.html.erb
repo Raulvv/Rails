@@ -7,7 +7,7 @@
 <% @users.each do |user| %>
 	<ul>
 		<li>
-			<%= user.name %>
+			<%= link_to "#{user.name}", user_path(user) %>
 		</li>
 		<li>
 			<%= user.email %>

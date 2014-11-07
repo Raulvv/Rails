@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 		@users = User.all.sort_by{|visit| visit.visits.all}
 	end
 
+	def show
+		@users = User.find(params[:id])
+	end
+
 	def new
 		@user = User.new
 	end
