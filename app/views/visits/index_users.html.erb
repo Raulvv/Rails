@@ -1,0 +1,17 @@
+<h1><%= link_to "#{@user.name}", users_path %></h1>
+
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+
+<% @visits.each do |visit| %>
+	<ul>
+		<li>Name: <%= visit.user_name %></li>
+		<li>From: <%= visit.from_date %></li>
+		<li>To: <%= visit.to_date %></li>
+		<%= link_to "Edit a Visit", edit_location_visit_path(@location, visit) %>
+		<%= link_to "Delete a Visit", location_visit_path(@location, visit), method: 'delete', data: { confirm: "Are you sure?"} %>
+	</ul>
+<% end %>
+
+<%= link_to "Create new Visit", new_location_visit_path(@location) %>
