@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-location = Location.create(name: 'Casta', city: 'Barcelona', zip_code: 28900, country: 'Spain', street: 'Calle Castellana', description: 'Esto es una descripcion bastante explicativa.')
-location2 = Location.create(name: 'Humildat', city: 'Malaga', zip_code: 66900, country: 'Spain', street: 'Santa Clara', description: 'Esto es una descripcion bastante explicativa.')
-location3 = Location.create(name: 'Valors', city: 'Madrid', zip_code: 43300, country: 'Spain', street: 'Canaletas', description: 'Esto es una descripcion bastante explicativa.')
+location = Location.create(name: 'Casta', city: 'Barcelona', zip_code: 28900, country: 'Spain', street: 'Calle Castellana', description: 'Esto es una descripcion bastante explicativa.', latitude: 40.28, longitude: -3.70 )
+location2 = Location.create(name: 'Humildat', city: 'Malaga', zip_code: 66900, country: 'Spain', street: 'Santa Clara', description: 'Esto es una descripcion bastante explicativa.', latitude: 40.28, longitude: -3.70 )
+location3 = Location.create(name: 'Valors', city: 'Madrid', zip_code: 43300, country: 'Spain', street: 'Canaletas', description: 'Esto es una descripcion bastante explicativa.', latitude: 40.28, longitude: -3.70 )
 
 location.visits.build(user_name: 'Juanjo', from_date: Time.now, to_date: Time.now + 1.hour)
 location.save
