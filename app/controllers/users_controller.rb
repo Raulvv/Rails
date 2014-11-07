@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	def index
-		@users = User.all
+		@users = User.all.sort_by{|visit| visit.visits.all}
 	end
 
 	def new
@@ -22,4 +22,9 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:name, :email)
 	end
+
+	def user_visits
+		
+	end
+
 end
