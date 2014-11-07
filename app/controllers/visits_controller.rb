@@ -19,8 +19,10 @@ class VisitsController < ApplicationController
 		@visit = @location.visits.new visit_params
 
 		if @visit.save
-			redirect_to location_visits_path @location
+			flash[:notice] = "Se ha creado correctamente."
+			redirect_to action: 'index', controller: 'visits', location_id: @location.id
 		else
+			flash[:error] = "No se ha podido crear la visita."
 			render 'new'
 		end
 	end
