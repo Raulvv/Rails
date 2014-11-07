@@ -9,6 +9,7 @@
 		<li>Name: <%= visit.user_name %></li>
 		<li>From: <%= visit.from_date %></li>
 		<li>To: <%= visit.to_date %></li>
+		<li>User: <%= link_to "#{visit.user.name}", user_path(visit.user) %></li>
 		<%= link_to "Edit a Visit", edit_location_visit_path(@location, visit) %>
 		<%= link_to "Delete a Visit", location_visit_path(@location, visit), method: 'delete', data: { confirm: "Are you sure?"} %>
 	</ul>
