@@ -12,6 +12,9 @@ class Location < ActiveRecord::Base
 	validates :latitude, presence: true
 	validates :longitude, presence: true
 	
+	def to_param
+		name
+	end
 
 	def self.last_created(n)
 		order(created_at: :asc).limit(n)

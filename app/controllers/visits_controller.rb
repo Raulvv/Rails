@@ -1,6 +1,6 @@
 class VisitsController < ApplicationController
 	def index
-		@location = Location.find(params[:location_id])
+		@location = Location.find_by_name(params[:location_id])
 		@visits = @location.visits
 	end
 
@@ -16,17 +16,19 @@ class VisitsController < ApplicationController
 	end
 	
 	def new
-		@location = Location.find(params[:location_id])
+		@location = Location.find_by_name(params[:location_id])
 		@visit = @location.visits.new
+		@users = User.all
 	end
 	
 	def create
-		@location = Location.find(params[:location_id])
-		@visit = @location.visits.new visit_params
+		@location = Location.find_by_name(params[:location_id])
+		visit = @location.visits.new visit_params
 
-		if @visit.save
+
+		if visit.save
 			flash[:notice] = "Se ha creado correctamente."
-			redirect_to action: 'index', controller: 'visits', location_id: @location.id
+			redirect_to action: 'index', controller: 'visits', location_id: @location.name
 		else
 			flash[:error] = "No se ha podido crear la visita."
 			render 'new'
@@ -34,7 +36,7 @@ class VisitsController < ApplicationController
 	end
 
 	def edit
-		@location = Location.find(params[:location_id])
+		@location = Location.find_by_name(params[:location_id])
 		@visit = @location.visits.find(params[:id])
 	end
 
@@ -56,6 +58,6 @@ class VisitsController < ApplicationController
 
 	private
 	def visit_params
-		params.require(:visit).permit(:user_name, :from_date, :to_date)
+		params.require(:visit).permit(:user_name, :from_date, :to_date, :user_id)
 	end
 end

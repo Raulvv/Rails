@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
 		@locations = Location.last_created(10)
 	end
 	def show
-		@locations = Location.find(params[:id])
+		@locations = Location.find_by_name(params[:id])
 	end
 
 	def new
