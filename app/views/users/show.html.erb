@@ -1,0 +1,18 @@
+<h1>User</h1>
+
+<ul>
+	<li><%= @users.name %>
+		<ul>
+			<li>Email: <%= @users.email %></li>
+			<li>Visits: </li>
+				<ul>
+					<% @users.visits.each do |visit| %>
+					<li>Visit name: <%= visit.user_name %></li>
+					<li>From: <%= visit.from_date %></li>
+					<li>To: <%= visit.to_date %></li>
+					<li>Location: <%= link_to "#{visit.location.name}", location_path(visit.location_id) %></li>
+					<% end %>
+				</ul>
+		</ul>
+	</li>
+</ul>

@@ -4,6 +4,12 @@ class VisitsController < ApplicationController
 		@visits = @location.visits
 	end
 
+	def index_users
+		@users = User.find(params[:user_id])
+		@visits = @users.visits
+	end
+
+
 	def show
 		@location = Location.find(params[:location_id])
 		@visits = @location.visits.find(params[:id])
