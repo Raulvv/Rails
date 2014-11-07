@@ -1,0 +1,9 @@
+<%= form_for [@user] do |f| %>
+ 	<%= f.label :name %>
+	 <%= f.string :name %>
+	 <br/>
+ 	<%= f.string :email %>
+ 	<br/>
+ 	<%= f.submit "Save" %>
+ 	<%= link_to "Cancel", location_visits_path(@location) %>
+	<% end %>
